@@ -1,0 +1,21 @@
+.MODEL SMALL
+.CODE
+Mov bl,0
+START:
+MOV AH, 1
+INT 21H
+JE START
+CMP AL, '@' 
+JE L10
+CMP AL ,BL
+JAE F1
+Jmp start
+F1:
+MOV BL ,AL
+jmp START
+L10:
+MOV AH ,2
+Mov dl,bl
+INT 21H
+.EXIT 
+END
